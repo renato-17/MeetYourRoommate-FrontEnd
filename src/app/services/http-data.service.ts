@@ -9,7 +9,7 @@ import {catchError, retry} from 'rxjs/operators';
 })
 export class HttpDataService {
   // Reservations Endpoint
-  basePath = 'https://meetyourroommateapi.herokuapp.com/api/';
+  basePath = 'https://cors-anywhere.herokuapp.com/https://meetyourroommateapi.herokuapp.com/api/';
   constructor(private http: HttpClient) { }
   // Http Default Options
   httpOptions = {
@@ -49,7 +49,7 @@ export class HttpDataService {
   }
   // Delete Reservation
   deleteItem(id): Observable<any> {
-    return this.http.delete<Reservation>(`${this.basePath}/${id}`, this.httpOptions)
-      .pipe(retry(2), catchError(this.handleError));
+    return this.http.delete<Reservation>(`${this.basePath}reservations/${id}`, this.httpOptions)
+      .pipe(catchError(this.handleError));
   }
 }

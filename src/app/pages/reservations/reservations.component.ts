@@ -59,12 +59,13 @@ export class ReservationsComponent implements OnInit, AfterViewInit {
     this.reservationForm.resetForm();
   }
   deleteItem(id): void {
-    this.httpDataService.deleteItem(id).subscribe((response: any) => {
-      this.dataSource.data = this.dataSource.data.filter((o: Reservation) => {
-        return o.id !== id ? o : false;
+    this.httpDataService.deleteItem(id).subscribe(
+      response => {
+        console.log(response);
+      },
+      error => {
+        console.log(error);
       });
-    });
-    console.log(this.dataSource.data);
   }
   addReservation(): void {
     const newReservation = {dateStart: this.reservationData.dateStart, dateEnd: this.reservationData.dateEnd};
