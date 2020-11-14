@@ -7,6 +7,8 @@ import {StudentComponent} from './pages/student/student.component';
 import {PropertiesComponent} from './pages/properties/properties.component';
 import {LessorProfileComponent} from './pages/lessor-profile/lessor-profile.component';
 import {PropertyComponent} from './pages/property/property.component';
+import {TeamsComponent} from './pages/teams/teams.component';
+import {TeamComponent} from './pages/team/team.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
@@ -18,6 +20,9 @@ const routes: Routes = [
   { path: 'properties/new', component: PropertyComponent },
   { path: 'lessors/1/properties/:id', component: PropertyComponent },
   { path: 'lessors/:id', component: LessorProfileComponent},
+  { path: 'teams', component: TeamsComponent },
+  { path: 'teams/new', component: TeamComponent },
+  { path: 'teams/:id', component: TeamComponent},
   ];
 
 @NgModule({
