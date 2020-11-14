@@ -1,0 +1,23 @@
+<mat-toolbar color="white">
+  <mat-toolbar-row>
+    <span class="example-spacer"></span>
+    <button mat-button>Cerrar Sesion</button>
+    <button mat-button routerLink="/profile" routerLinkActive="active">Mi Perfil</button>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-toolbar>
+  <button mat-icon-button aria-label="Example icon-button with menu icon">
+    <img src="favicon.ico" alt="Icon placeholder">
+  </button>
+  <span>Meet Your Roomate</span>
+  <span class="example-spacer"></span>
+  <button mat-button routerLink="/" routerLinkActive="active">Inicio</button>
+  <button mat-button routerLink="/students/" routerLinkActive="active">Roomates</button>
+  <button mat-button routerLink="/ads" routerLinkActive="active">Anuncios</button>
+  <button mat-button routerLink="/" routerLinkActive="active">Mi Plan</button>
+  <button mat-button>Contáctanos</button>
+  <button mat-icon-button>
+    <mat-icon>menu</mat-icon>
+  </button>
+</mat-toolbar>
+<router-outlet></router-outlet>
