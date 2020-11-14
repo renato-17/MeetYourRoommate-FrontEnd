@@ -1,86 +1,64 @@
 {
-  "properties": [
+  "students": [
     {
       "id": 1,
-      "address": "Av. Alamo 322",
-      "description": "Departamento en estreno ideal para estudiantes"
+      "name": "John Doe",
+      "age": 25,
+      "address": "New Location"
     },
     {
       "id": 2,
-      "address": "Av. Ica 123",
-      "description": "Mini departamento con 2 habitaciones"
+      "name": "Jason Bourne",
+      "age": 20,
+      "address": "Unknown"
     },
     {
       "id": 3,
-      "address": "Av. Chorrillos 541",
-      "description": "Departamento cerca a UPC Villa"
+      "name": "William Norton",
+      "age": 30,
+      "address": "One Place"
     },
     {
       "id": 4,
-      "address": "Calle Santa Inés E-02",
-      "description": "Departamento para estudiantes"
-    },
-    {
-      "address": "Calle Luren F28",
-      "description": "Bonito Departamento frente a universidad",
-      "id": 6
-    }
-  ],
-  "lessors": [
-    {
-      "id": 1,
-      "firstName": "Miguel",
-      "lastName": "Barrera",
-      "dni": "71827362",
-      "phoneNumber": "987456123",
-      "gender": "Masculino",
-      "birthdate": "2020/11/11T00:00:00",
-      "address": "Calle Santa Ines D4 - Chorrillos",
-      "getBPremium": false
-    },
-    {
-      "id": 2,
-      "firstName": "Andrea",
-      "lastName": "Anyosa",
-      "dni": "04012312",
-      "phoneNumber": "967263512",
-      "gender": "Femenino",
-      "birthdate": "2020/11/11T00:00:00",
-      "address": "Calle Santa Eulalia D4 - San Miguel",
-      "getBPremium": false
-    },
-    {
-      "id": 3,
-      "firstName": "Antonio",
-      "lastName": "Rojas",
-      "dni": "71827364",
-      "phoneNumber": "918726354",
-      "gender": "Masculino",
-      "birthdate": "2020/11/11T00:00:00",
-      "address": "Calle Santa Maria D3 - Chorrillos",
-      "getBPremium": false
-    },
-    {
-      "id": 4,
-      "firstName": "Maria",
-      "lastName": "Rivera",
-      "dni": "21562413",
-      "phoneNumber": "912354678",
-      "gender": "Femenino",
-      "birthdate": "2020/11/11T00:00:00",
-      "address": "Av Principal 121 - San Isidro",
-      "getBPremium": false
+      "name": "Steven Strange",
+      "age": 18,
+      "address": "Santum Santorum"
     },
     {
       "id": 5,
-      "firstName": "Angela",
-      "lastName": "Avila",
-      "dni": "22314232",
-      "phoneNumber": "912675677",
-      "gender": "Femenino",
-      "birthdate": "2020/11/11T00:00:00",
-      "address": "Av. El Rio 761 - Miraflores",
-      "getBPremium": false
+      "name": "Mike Myers",
+      "age": 24,
+      "address": "The Final Place"
+    },
+    {
+      "name": "Peter Parker",
+      "age": 26,
+      "address": "New York",
+      "id": 6
+    },
+    {
+      "name": "Scott Lang",
+      "age": "38",
+      "address": "New York",
+      "id": 7
+    },
+    {
+      "name": "Clark Kent",
+      "age": 35,
+      "address": "Metropolis",
+      "id": 8
+    },
+    {
+      "name": "Another",
+      "age": 25,
+      "address": "Well",
+      "id": 9
+    },
+    {
+      "name": "Tom Jarvis",
+      "age": 20,
+      "address": "His Home",
+      "id": 10
     }
   ]
 }

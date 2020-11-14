@@ -7,6 +7,7 @@ import { HttpDataService } from '../../services/http-data.service';
 import * as _ from 'lodash';
 import {Router} from '@angular/router';
 import {Property} from '../../models/property';
+import {PropertiesService} from '../../services/properties.service';
 
 @Component({
   selector: 'app-properties',
@@ -23,7 +24,7 @@ export class PropertiesComponent implements OnInit, AfterViewInit {
   @ViewChild(MatSort) sort: MatSort;
   isEditMode = false;
 
-  constructor(private httpDataService: HttpDataService, private router: Router) {
+  constructor(private httpDataService: PropertiesService, private router: Router) {
     this.propertyData = {} as Property;
   }
 
@@ -44,7 +45,10 @@ export class PropertiesComponent implements OnInit, AfterViewInit {
   }
   getAllProperties(): void {
     this.httpDataService.getPropertyList().subscribe((response: any) => {
-      this.dataSource.data = response;
+      if (!response){
+        return;
+      }
+      this.dataSource = new MatTableDataSource(response.content);
     });
   }
   cancelEdit(): void {
@@ -96,4 +100,3 @@ export class PropertiesComponent implements OnInit, AfterViewInit {
     this.router.navigate([`/properties/${propertyId}`]).then(() => null);
   }
 }
-

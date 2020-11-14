@@ -16,11 +16,7 @@ module.exports = function (config) {
       clearContext: false // leave Jasmine Spec Runner output visible in browser
     },
     coverageReporter: {
-<<<<<<< HEAD
-      dir: require('path').join(__dirname, './coverage/meet-your-roommate'),
-=======
-      dir: require('path').join(__dirname, './coverage/MeetYourRoommate-FrontEnd'),
->>>>>>> origin/feature/reservation_and_home
+      dir: require('path').join(__dirname, './coverage/rommates-frontend'),
       subdir: '.',
       reporters: [
         { type: 'html' },

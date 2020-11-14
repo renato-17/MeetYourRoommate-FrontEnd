@@ -6,9 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-<<<<<<< HEAD
-  title = 'meet-your-roommate';
-=======
-  title = 'MeetYourRoommate-FrontEnd';
->>>>>>> origin/feature/reservation_and_home
+  title = 'rommates-frontend';
 }
