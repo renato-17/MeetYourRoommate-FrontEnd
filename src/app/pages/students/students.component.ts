@@ -18,7 +18,7 @@ export class StudentsComponent implements OnInit, AfterViewInit {
   studentForm: NgForm;
   studentData: Student;
   dataSource = new MatTableDataSource();
-  displayedColumns: string[] = ['id', 'firstName', 'lastName', 'address', 'actions'];
+  displayedColumns: string[] = ['id', 'firstName', 'lastName', 'phoneNumber', 'birthdate', 'address', 'actions'];
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   isEditMode = false;
@@ -88,6 +88,9 @@ export class StudentsComponent implements OnInit, AfterViewInit {
     this.router.navigate(['/students/new']).then(() => null);
   }
   navigateToEditStudent(studentId): void {
+    this.router.navigate([`/students/${studentId}`]).then(() => null);
+  }
+  navigateToStudentProfile(studentId): void {
     this.router.navigate([`/students/${studentId}`]).then(() => null);
   }
 }

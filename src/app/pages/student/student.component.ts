@@ -17,9 +17,9 @@ export class StudentComponent implements OnInit {
   isEditMode = false;
   studentId: number;
   studentData: Student = new Student();
-  defaultStudent = { id: 0, firstName: '', lastName: '', dni: null, phoneNumber: null,
+  defaultStudent = { id: 0, firstName: '', lastName: '', dni: '', phoneNumber: '',
     gender: '',
-    birthdate: '',
+    birthdate: null,
     address: '',
     description: '',
     hobbies: '',

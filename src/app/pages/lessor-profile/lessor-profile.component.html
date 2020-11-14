@@ -2,7 +2,7 @@
   <mat-grid-tile>
     <mat-card class="example">
       <mat-card-header>
-        <mat-card-title>{{ lessorData.firstName }} {{ lessorData.lastName }}</mat-card-title>
+        <mat-card-title>{{lessorData.firstName}} {{lessorData.lastName}}</mat-card-title>
       </mat-card-header>
       <p></p>
       <div *ngIf="lessorData.gender=='Masculino'; else elseBlock2">
@@ -36,13 +36,13 @@
           <mat-label>Género: {{lessorData.gender}}</mat-label>
         </p>
         <p>
-          <mat-label>Fecha de Nacimiento: {{lessorData.birthdate}}</mat-label>
+          <mat-label>Fecha de Nacimiento: {{lessorData.birthdate | date:'dd/MM/yyyy' }}</mat-label>
         </p>
         <p>
           <mat-label>Dirección: {{lessorData.address}}</mat-label>
         </p>
         <p>
-          <mat-label *ngIf="lessorData.getBPremium==false; else elseBlock">Tipo de Plan: Free</mat-label>
+          <mat-label *ngIf="lessorData.premium==false; else elseBlock">Tipo de Plan: Free</mat-label>
           <ng-template #elseBlock>
             Tipo de Plan: Premium
           </ng-template>

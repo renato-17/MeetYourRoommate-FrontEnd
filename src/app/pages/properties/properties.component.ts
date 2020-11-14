@@ -97,6 +97,6 @@ export class PropertiesComponent implements OnInit, AfterViewInit {
     this.router.navigate(['/properties/new']).then(() => null);
   }
   navigateToEditProperty(propertyId): void {
-    this.router.navigate([`/properties/${propertyId}`]).then(() => null);
+    this.router.navigate([`/lessors/1/properties/${propertyId}`]).then(() => null);
   }
 }

@@ -22,7 +22,7 @@ export class LessorsService {
 
   // Get Lessor by Id
   getLessorById(id): Observable<Lessor> {
-    return this.http.get<Lessor>(`${this.basePath}/lessors/${id}`, this.httpOptions )
+    return this.http.get<Lessor>(`${this.basePath}lessors/${id}`, this.httpOptions )
       .pipe(retry(2), catchError(this.handleError));
   }
 }

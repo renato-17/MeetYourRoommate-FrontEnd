@@ -23,9 +23,14 @@ import {HttpClientModule} from '@angular/common/http';
 import { PropertiesComponent } from './pages/properties/properties.component';
 import { PropertyComponent } from './pages/property/property.component';
 import { LessorProfileComponent } from './pages/lessor-profile/lessor-profile.component';
+import {TeamComponent} from './pages/team/team.component';
+import {TeamsComponent} from './pages/teams/teams.component';
+import { ReservationsComponent } from './pages/reservations/reservations.component';
+import { StudentProfileComponent } from './pages/student-profile/student-profile.component';
 
 @NgModule({
   declarations: [
+    TeamComponent,
     AppComponent,
     StudentsComponent,
     HomeComponent,
@@ -34,7 +39,10 @@ import { LessorProfileComponent } from './pages/lessor-profile/lessor-profile.co
     StudentComponent,
     PropertiesComponent,
     PropertyComponent,
-    LessorProfileComponent
+    LessorProfileComponent,
+    TeamsComponent,
+    ReservationsComponent,
+    StudentProfileComponent
   ],
   imports: [
     HttpClientModule,

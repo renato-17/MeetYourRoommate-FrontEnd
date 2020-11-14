@@ -1,4 +1,5 @@
 export class Lessor {
+  id: number;
   firstName: string;
   lastName: string;
   dni: string;
@@ -6,5 +7,5 @@ export class Lessor {
   gender: string;
   birthdate: Date;
   address: string;
-  getBPremium: boolean;
+  premium: boolean;
 }

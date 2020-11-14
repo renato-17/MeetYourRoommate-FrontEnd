@@ -1,0 +1,59 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Reservaciones</mat-card-title>
+        <mat-card-subtitle>{{ isEditMode ? 'Editar reservación' : 'Agregar nueva reservación' }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <mat-grid-list cols="2" rowHeight="70px">
+            <mat-grid-tile>
+                <form (submit)="onSubmit()" #reservationForm="ngForm">
+                    <mat-form-field>
+                        <input type="date" matInput placeholder="Fecha de inicio" name="dateStart" required [(ngModel)]="reservationData.dateStart">
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input type="date" matInput placeholder="Fecha de finalización" name="dateEnd" required [(ngModel)]="reservationData.dateEnd">
+                    </mat-form-field>
+                    <ng-container *ngIf="isEditMode; else elseTemplate">
+                        <button mat-button color="primary">Update</button>
+                        <a mat-button color="warn" (click)="cancelEdit()">Cancel</a>
+                    </ng-container>
+                    <ng-template #elseTemplate>
+                        <button mat-button color="primary">Agregar</button>
+                    </ng-template>
+                </form>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-form-field>
+                    <mat-label>Filtro</mat-label>
+                    <input matInput (keyup)="applyFilter($event)" #input>
+                </mat-form-field>
+            </mat-grid-tile>
+        </mat-grid-list>
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef> #Id </th>
+                <td mat-cell *matCellDef="let element"> {{ element.id }}</td>
+            </ng-container>
+            <ng-container matColumnDef="dateStart">
+                <th mat-header-cell *matHeaderCellDef> Fecha de inicio </th>
+                <td mat-cell *matCellDef="let element"> {{ element.dateStart }}</td>
+            </ng-container>
+            <ng-container matColumnDef="dateEnd">
+                <th mat-header-cell *matHeaderCellDef> Fecha de finalización </th>
+                <td mat-cell *matCellDef="let element"> {{ element.dateEnd }}</td>
+            </ng-container>
+            <ng-container matColumnDef="actions">
+                <th mat-header-cell *matHeaderCellDef> Acciones </th>
+                <td mat-cell *matCellDef="let element">
+                    <a href="javascript:void(0)"  (click)="editItem(element)"><mat-icon inline aria-hidden="false" aria-label="Edit" style="padding-right: 10px;">edit</mat-icon></a>
+                    <a href="javascript:void(0)" (click)="deleteItem(element.id)"><mat-icon inline aria-hidden="false" aria-label="Delete">delete</mat-icon></a>
+                </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+                [ngClass]="{'editable-row': reservationData.id === row.id}"></tr>
+        </table>
+        <mat-paginator [pageSize]="15" [pageSizeOptions]="[5, 10, 15]" showFirstLastButtons></mat-paginator>
+    </mat-card-content>
+</mat-card>
+

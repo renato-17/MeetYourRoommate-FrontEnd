@@ -2,10 +2,10 @@ export class Student {
   id: number;
   firstName: string;
   lastName: string;
-  dni: number;
-  phoneNumber: number;
+  dni: string;
+  phoneNumber: string;
   gender: string;
-  birthdate: string;
+  birthdate: Date;
   address: string;
   description: string;
   hobbies: string;
