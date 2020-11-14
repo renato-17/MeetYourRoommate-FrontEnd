@@ -1,0 +1,86 @@
+{
+  "properties": [
+    {
+      "id": 1,
+      "address": "Av. Alamo 322",
+      "description": "Departamento en estreno ideal para estudiantes"
+    },
+    {
+      "id": 2,
+      "address": "Av. Ica 123",
+      "description": "Mini departamento con 2 habitaciones"
+    },
+    {
+      "id": 3,
+      "address": "Av. Chorrillos 541",
+      "description": "Departamento cerca a UPC Villa"
+    },
+    {
+      "id": 4,
+      "address": "Calle Santa Inés E-02",
+      "description": "Departamento para estudiantes"
+    },
+    {
+      "address": "Calle Luren F271",
+      "description": "Bonito Departamento1",
+      "id": 5
+    }
+  ],
+  "lessors": [
+    {
+      "id": 1,
+      "firstName": "Miguel",
+      "lastName": "Barrera",
+      "dni": "71827362",
+      "phoneNumber": "987456123",
+      "gender": "Masculino",
+      "birthdate": "2020/11/11T00:00:00",
+      "address": "Calle Santa Ines D4 - Chorrillos",
+      "getBPremium": false
+    },
+    {
+      "id": 2,
+      "firstName": "Andrea",
+      "lastName": "Anyosa",
+      "dni": "04012312",
+      "phoneNumber": "967263512",
+      "gender": "Femenino",
+      "birthdate": "2020/11/11T00:00:00",
+      "address": "Calle Santa Eulalia D4 - San Miguel",
+      "getBPremium": false
+    },
+    {
+      "id": 3,
+      "firstName": "Antonio",
+      "lastName": "Rojas",
+      "dni": "71827364",
+      "phoneNumber": "918726354",
+      "gender": "Masculino",
+      "birthdate": "2020/11/11T00:00:00",
+      "address": "Calle Santa Maria D3 - Chorrillos",
+      "getBPremium": false
+    },
+    {
+      "id": 4,
+      "firstName": "Maria",
+      "lastName": "Rivera",
+      "dni": "21562413",
+      "phoneNumber": "912354678",
+      "gender": "Femenino",
+      "birthdate": "2020/11/11T00:00:00",
+      "address": "Av Principal 121 - San Isidro",
+      "getBPremium": false
+    },
+    {
+      "id": 5,
+      "firstName": "Angela",
+      "lastName": "Avila",
+      "dni": "22314232",
+      "phoneNumber": "912675677",
+      "gender": "Femenino",
+      "birthdate": "2020/11/11T00:00:00",
+      "address": "Av. El Rio 761 - Miraflores",
+      "getBPremium": false
+    }
+  ]
+}

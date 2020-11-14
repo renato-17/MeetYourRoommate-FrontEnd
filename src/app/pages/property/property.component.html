@@ -1,0 +1,27 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>{{ isEditMode ? 'Editar Propiedad' : 'Añadir Propiedad' }}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form (submit)="onSubmit()" #propertyForm="ngForm">
+      <p>
+        <mat-form-field>
+          <mat-label>Dirección</mat-label>
+          <input matInput placeholder="Dirección" name="address" required [(ngModel)]="propertyData.address">
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field>
+          <mat-label>Descripción</mat-label>
+          <input matInput placeholder="Descripción" name="description" required [(ngModel)]="propertyData.description">
+        </mat-form-field>
+      </p>
+      <p>
+        <ng-container>
+          <button mat-button color="primary">{{ isEditMode ? 'Actualizar' : 'Añadir'}}</button>
+          <a mat-button color="warn" (click)="cancelEdit()">Cancelar</a>
+        </ng-container>
+      </p>
+    </form>
+  </mat-card-content>
+</mat-card>
