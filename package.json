@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "name": "meet-your-roommate",
+=======
+  "name": "meet-your-roommate-front-end",
+>>>>>>> origin/feature/reservation_and_home
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -21,7 +25,10 @@
     "@angular/platform-browser": "~11.0.0",
     "@angular/platform-browser-dynamic": "~11.0.0",
     "@angular/router": "~11.0.0",
+<<<<<<< HEAD
     "json-server": "^0.16.2",
+=======
+>>>>>>> origin/feature/reservation_and_home
     "lodash": "^4.17.20",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",

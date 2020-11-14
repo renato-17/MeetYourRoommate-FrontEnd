@@ -1,16 +1,26 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import {Observable, throwError} from 'rxjs';
+<<<<<<< HEAD
 import {catchError, retry} from 'rxjs/operators';
 import {Property} from '../models/property';
 import {Lessor} from '../models/lessor';
+=======
+import {Reservation} from '../models/reservation';
+import {catchError, retry} from 'rxjs/operators';
+>>>>>>> origin/feature/reservation_and_home
 
 @Injectable({
   providedIn: 'root'
 })
 export class HttpDataService {
+<<<<<<< HEAD
   // Endpoint
   basePath = 'http://localhost:3000/api';
+=======
+  // Reservations Endpoint
+  basePath = 'https://meetyourroommateapi.herokuapp.com/api';
+>>>>>>> origin/feature/reservation_and_home
   constructor(private http: HttpClient) { }
   // Http Default Options
   httpOptions = {
@@ -28,6 +38,7 @@ export class HttpDataService {
     }
     return throwError('Something happened with request, please try again later.');
   }
+<<<<<<< HEAD
   // Create Property
   createProperty(item): Observable<Property> {
     return this.http.post<Property>(this.basePath + '/properties', JSON.stringify(item), this.httpOptions)
@@ -56,6 +67,31 @@ export class HttpDataService {
   // Get Lessor by Id
   getLessorById(id): Observable<Lessor> {
     return this.http.get<Lessor>(`${this.basePath}/lessors/${id}`, this.httpOptions )
+=======
+  // Create Reservation
+  createItem(item): Observable<Reservation> {
+    return this.http.post<Reservation>(this.basePath, JSON.stringify(item), this.httpOptions)
+      .pipe(retry(2), catchError(this.handleError));
+  }
+  // Get Reservation by Id
+  getItem(id): Observable<Reservation> {
+    return this.http.get<Reservation>(`${this.basePath}/${id}`, this.httpOptions )
+      .pipe(retry(2), catchError(this.handleError));
+  }
+  // Get Reservation Data
+  getList(): Observable<Reservation>{
+    return this.http.get<Reservation>(this.basePath)
+      .pipe(retry(2), catchError(this.handleError));
+  }
+  // Update Reservation
+  updateItem(id, item): Observable<Reservation>{
+    return this.http.put<Reservation>(`${this.basePath}/${id}`, JSON.stringify(item), this.httpOptions)
+      .pipe(retry(2), catchError(this.handleError));
+  }
+  // Delete Reservation
+  deleteItem(id): Observable<any> {
+    return this.http.delete<Reservation>(`${this.basePath}/${id}`, this.httpOptions)
+>>>>>>> origin/feature/reservation_and_home
       .pipe(retry(2), catchError(this.handleError));
   }
 }
