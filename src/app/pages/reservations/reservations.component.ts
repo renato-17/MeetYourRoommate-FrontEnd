@@ -6,6 +6,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { HttpDataService } from '../../services/http-data.service';
 import * as _ from 'lodash';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-reservations',
@@ -22,7 +23,7 @@ export class ReservationsComponent implements OnInit, AfterViewInit {
   @ViewChild(MatSort) sort: MatSort;
   isEditMode = false;
 
-  constructor(private httpDataService: HttpDataService) {
+  constructor(private httpDataService: HttpDataService, private router: Router) {
     this.reservationData = {} as Reservation;
   }
 
@@ -59,19 +60,20 @@ export class ReservationsComponent implements OnInit, AfterViewInit {
     this.reservationForm.resetForm();
   }
   deleteItem(id): void {
-    this.httpDataService.deleteItem(id).subscribe(
-      response => {
-        console.log(response);
-      },
-      error => {
-        console.log(error);
+    this.httpDataService.deleteItem(id).subscribe(() => {
+      this.dataSource.data = this.dataSource.data.filter((o: Reservation) => {
+        return o.id !== id ? o : false;
       });
+    });
+    console.log(this.dataSource.data);
+    this.router.navigate(['/reservations']);
   }
   addReservation(): void {
     const newReservation = {dateStart: this.reservationData.dateStart, dateEnd: this.reservationData.dateEnd};
     this.httpDataService.createItem(newReservation).subscribe((response: any) => {
       this.dataSource.data.push({...response});
       this.dataSource.data = this.dataSource.data.map(o => o);
+      this.router.navigate(['/reservations']);
     });
   }
   updateReservation(): void {
@@ -80,6 +82,7 @@ export class ReservationsComponent implements OnInit, AfterViewInit {
         this.dataSource.data = this.dataSource.data.map((o: Reservation) => {
           if (o.id === response.id) {
             o = response;
+            this.router.navigate(['/reservations']);
           }
           return o;
         });
