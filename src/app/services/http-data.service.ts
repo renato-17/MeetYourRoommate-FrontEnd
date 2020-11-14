@@ -50,6 +50,6 @@ export class HttpDataService {
   // Delete Reservation
   deleteItem(id): Observable<any> {
     return this.http.delete<Reservation>(`${this.basePath}reservations/${id}`, this.httpOptions)
-      .pipe(catchError(this.handleError));
+      .pipe(retry(2), catchError(this.handleError));
   }
 }
