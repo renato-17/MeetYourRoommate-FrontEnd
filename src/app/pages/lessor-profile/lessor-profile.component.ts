@@ -3,6 +3,7 @@ import { Router, ActivatedRoute} from '@angular/router';
 import * as _ from 'lodash';
 import {Lessor} from '../../models/lessor';
 import {Component, OnInit} from '@angular/core';
+import {LessorsService} from '../../services/lessors.service';
 
 @Component({
   selector: 'app-lessor-profile',
@@ -12,7 +13,7 @@ import {Component, OnInit} from '@angular/core';
 export class LessorProfileComponent implements OnInit {
   lessorId: number;
   lessorData: Lessor = new Lessor();
-  constructor(private httpDataService: HttpDataService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private httpDataService: LessorsService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.lessorId = Number(this.route.params.subscribe( params => {

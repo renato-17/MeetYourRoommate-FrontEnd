@@ -4,6 +4,7 @@ import {Property} from '../../models/property';
 import {HttpDataService} from '../../services/http-data.service';
 import { Router, ActivatedRoute} from '@angular/router';
 import * as _ from 'lodash';
+import {PropertiesService} from '../../services/properties.service';
 
 @Component({
   selector: 'app-property',
@@ -17,7 +18,7 @@ export class PropertyComponent implements OnInit {
   propertyId: number;
   propertyData: Property = new Property();
   defaultProperty = { id: 0, address: '', description: ''};
-  constructor(private httpDataService: HttpDataService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private httpDataService: PropertiesService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.propertyId = Number(this.route.params.subscribe( params => {

@@ -1,12 +1,11 @@
-import {DatePipe} from '@angular/common';
-
 export class Lessor {
+  id: number;
   firstName: string;
   lastName: string;
   dni: string;
   phoneNumber: string;
   gender: string;
-  birthdate: Date = new Date();
+  birthdate: Date;
   address: string;
-  getBPremium: boolean;
+  premium: boolean;
 }
