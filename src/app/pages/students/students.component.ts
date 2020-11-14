@@ -18,7 +18,7 @@ export class StudentsComponent implements OnInit, AfterViewInit {
   studentForm: NgForm;
   studentData: Student;
   dataSource = new MatTableDataSource();
-  displayedColumns: string[] = ['id', 'firstName', 'lastName', 'address', 'actions'];
+  displayedColumns: string[] = ['id', 'firstName', 'lastName', 'phoneNumber', 'birthdate', 'address'];
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   isEditMode = false;

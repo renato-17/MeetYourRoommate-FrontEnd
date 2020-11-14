@@ -6,17 +6,31 @@
     <form (submit)="onSubmit()" #studentForm="ngForm">
       <p>
         <mat-form-field>
-          <mat-label>Student Name</mat-label>
+          <mat-label>Nombre</mat-label>
           <input matInput placeholder="FirstName" name="firstName" required [(ngModel)]="studentData.firstName">
         </mat-form-field>
+      </p>
+      <p>
         <mat-form-field>
-          <mat-label>Age</mat-label>
+          <mat-label>Apellido</mat-label>
           <input matInput placeholder="LastName" name="lastName" required [(ngModel)]="studentData.lastName">
         </mat-form-field>
       </p>
       <p>
         <mat-form-field>
-          <mat-label>Address</mat-label>
+          <mat-label>Teléfono</mat-label>
+          <input matInput placeholder="PhoneNumber" name="phoneNumber" required [(ngModel)]="studentData.phoneNumber">
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field>
+          <mat-label>Fecha de Nacimiento</mat-label>
+          <input matInput placeholder="Birthdate" name="birthdate" required [(ngModel)]="studentData.birthdate">
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field>
+          <mat-label>Dirección</mat-label>
           <input matInput placeholder="Address" name="address" required [(ngModel)]="studentData.address">
         </mat-form-field>
       </p>
