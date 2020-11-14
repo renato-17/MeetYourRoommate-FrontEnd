@@ -21,9 +21,9 @@
       "description": "Departamento para estudiantes"
     },
     {
-      "address": "Calle Luren F271",
-      "description": "Bonito Departamento1",
-      "id": 5
+      "address": "Calle Luren F28",
+      "description": "Bonito Departamento frente a universidad",
+      "id": 6
     }
   ],
   "lessors": [

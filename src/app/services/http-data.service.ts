@@ -10,7 +10,7 @@ import {Lessor} from '../models/lessor';
 })
 export class HttpDataService {
   // Endpoint
-  basePath = 'https://meetyourroommateapi.herokuapp.com/api';
+  basePath = 'http://localhost:3000/api';
   constructor(private http: HttpClient) { }
   // Http Default Options
   httpOptions = {
@@ -30,12 +30,12 @@ export class HttpDataService {
   }
   // Create Property
   createProperty(item): Observable<Property> {
-    return this.http.post<Property>(this.basePath + '/lessors/1/properties', JSON.stringify(item), this.httpOptions)
+    return this.http.post<Property>(this.basePath + '/properties', JSON.stringify(item), this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
   // Get Property by Id
   getPropertyById(id): Observable<Property> {
-    return this.http.get<Property>(`${this.basePath}/lessors/1/properties/${id}`, this.httpOptions )
+    return this.http.get<Property>(`${this.basePath}/properties/${id}`, this.httpOptions )
       .pipe(retry(2), catchError(this.handleError));
   }
   // Get Property Data
@@ -45,12 +45,12 @@ export class HttpDataService {
   }
   // Update Property
   updateProperty(id, item): Observable<Property>{
-    return this.http.put<Property>(`${this.basePath}/lessors/1/properties/${id}`, JSON.stringify(item), this.httpOptions)
+    return this.http.put<Property>(`${this.basePath}/properties/${id}`, JSON.stringify(item), this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
   // Delete Student
   deleteProperty(id): Observable<any> {
-    return this.http.delete<Property>(`${this.basePath}/lessors/1/properties/${id}`, this.httpOptions)
+    return this.http.delete<Property>(`${this.basePath}/properties/${id}`, this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
   // Get Lessor by Id
