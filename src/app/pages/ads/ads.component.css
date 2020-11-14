@@ -26,3 +26,9 @@
 .mat-card {
 
 }
+table {
+  width: 100%;
+}
+tr.editable-row {
+  background-color: lightcyan;
+}

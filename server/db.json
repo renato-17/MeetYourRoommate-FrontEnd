@@ -1,0 +1,114 @@
+{
+  "students": [
+    {
+      "id": 1,
+      "firstName": "John Doe",
+      "lastName": "lolxd",
+      "dni": 12345678,
+      "phoneNumber": "99696969",
+      "gender": "male",
+      "address": "Fake street 1234",
+      "description": "Chill dude",
+      "hobbies": "I love rock climbing",
+      "getBSmoker": false
+    },
+    {
+      "id": 2,
+      "name": "Jason Bourne",
+      "age": 20,
+      "address": "Unknown"
+    },
+    {
+      "id": 3,
+      "name": "William Norton",
+      "age": 30,
+      "address": "One Place"
+    },
+    {
+      "id": 4,
+      "name": "Steven Strange",
+      "age": 18,
+      "address": "Santum Santorum"
+    },
+    {
+      "id": 5,
+      "name": "Mike Myers",
+      "age": 24,
+      "address": "The Final Place"
+    },
+    {
+      "name": "Peter Parker",
+      "age": 26,
+      "address": "New York",
+      "id": 6
+    },
+    {
+      "name": "Scott Lang",
+      "age": "38",
+      "address": "New York",
+      "id": 7
+    },
+    {
+      "name": "Clark Kent",
+      "age": 35,
+      "address": "Metropolis",
+      "id": 8
+    },
+    {
+      "name": "Another",
+      "age": 25,
+      "address": "Well",
+      "id": 9
+    },
+    {
+      "name": "Tom Jarvis",
+      "age": 20,
+      "address": "His Home",
+      "id": 10
+    }
+  ],
+  "ads": [
+    {
+      "id": 1,
+      "title": "Buen departamento lol xd",
+      "viewsNumber": 199999,
+      "likesNumber": 420
+    },
+    {
+      "id": 2,
+      "title": "Terminen con mi sufrimiento",
+      "viewsNumber": 666,
+      "likesNumber": 69
+    },
+    {
+      "id": 3,
+      "title": "Duplex",
+      "viewsNumber": 524,
+      "likesNumber": 96
+    },
+    {
+      "id": 3,
+      "title": "Quiero dormir",
+      "viewsNumber": 5,
+      "likesNumber": 2
+    },
+    {
+      "id": 4,
+      "title": "Casa con 2 habitaciones",
+      "viewsNumber": 445,
+      "likesNumber": 26
+    },
+    {
+      "id": 5,
+      "title": "Departamento cerca a la UPC",
+      "viewsNumber": 570,
+      "likesNumber": 45
+    },
+    {
+      "id": 6,
+      "title": "Excelente inmueble con hermosa vista",
+      "viewsNumber": 39,
+      "likesNumber": 21
+    }
+]
+}
