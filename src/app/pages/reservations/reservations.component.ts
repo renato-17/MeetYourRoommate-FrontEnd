@@ -43,7 +43,10 @@ export class ReservationsComponent implements OnInit, AfterViewInit {
   }
   getAllReservations(): void {
     this.httpDataService.getList().subscribe((response: any) => {
-      this.dataSource.data = response;
+      if (!response){
+        return;
+      }
+      this.dataSource = new MatTableDataSource(response.content);
     });
   }
   editItem(element): void {

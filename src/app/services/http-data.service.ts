@@ -9,7 +9,7 @@ import {catchError, retry} from 'rxjs/operators';
 })
 export class HttpDataService {
   // Reservations Endpoint
-  basePath = 'https://meetyourroommateapi.herokuapp.com/api';
+  basePath = 'https://meetyourroommateapi.herokuapp.com/api/';
   constructor(private http: HttpClient) { }
   // Http Default Options
   httpOptions = {
@@ -29,22 +29,22 @@ export class HttpDataService {
   }
   // Create Reservation
   createItem(item): Observable<Reservation> {
-    return this.http.post<Reservation>(this.basePath, JSON.stringify(item), this.httpOptions)
+    return this.http.post<Reservation>(`${this.basePath}reservations`, JSON.stringify(item), this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
   // Get Reservation by Id
   getItem(id): Observable<Reservation> {
-    return this.http.get<Reservation>(`${this.basePath}/${id}`, this.httpOptions )
+    return this.http.get<Reservation>(`${this.basePath}reservations/${id}`, this.httpOptions )
       .pipe(retry(2), catchError(this.handleError));
   }
   // Get Reservation Data
   getList(): Observable<Reservation>{
-    return this.http.get<Reservation>(this.basePath)
+    return this.http.get<Reservation>(`${this.basePath}reservations`)
       .pipe(retry(2), catchError(this.handleError));
   }
   // Update Reservation
   updateItem(id, item): Observable<Reservation>{
-    return this.http.put<Reservation>(`${this.basePath}/${id}`, JSON.stringify(item), this.httpOptions)
+    return this.http.put<Reservation>(`${this.basePath}reservations/${id}`, JSON.stringify(item), this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
   // Delete Reservation
