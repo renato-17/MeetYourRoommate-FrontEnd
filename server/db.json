@@ -1,0 +1,16 @@
+{
+  "teams": [
+    {
+      "id": 1,
+      "name": "TeamUPC"
+    },
+    {
+      "id": 2,
+      "name": "TeamUPC2"
+    },
+    {
+      "id": 3,
+      "name": "TeamUPC3"
+    }
+  ]
+}
