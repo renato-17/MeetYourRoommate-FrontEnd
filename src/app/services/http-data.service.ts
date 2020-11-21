@@ -10,7 +10,7 @@ export class HttpDataService {
     providedIn: 'root'
   })
   // Backend Endpoint
-  basePath = 'https://meetyourroommateapi.herokuapp.com/api/';
+  basePath = 'https://cors-anywhere.herokuapp.com/https://meetyourroommateapi.herokuapp.com/api/';
   constructor(public http: HttpClient) { }
   // Http Default Options
   httpOptions = {
