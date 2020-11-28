@@ -12,6 +12,7 @@ import {LessorsService} from '../../services/lessors.service';
 })
 export class LessorProfileComponent implements OnInit {
   lessorId: number;
+  lessorIdP: number;
   lessorData: Lessor = new Lessor();
   constructor(private httpDataService: LessorsService, private router: Router, private route: ActivatedRoute) { }
 
@@ -28,10 +29,14 @@ export class LessorProfileComponent implements OnInit {
   retrieveLessor(id): void {
     this.httpDataService.getLessorById(id)
       .subscribe((response: Lessor) => {
+        this.lessorIdP = id;
         this.lessorData = {} as Lessor;
         this.lessorData = _.cloneDeep(response);
         console.log(response);
         console.log(this.lessorData);
       });
+  }
+  navigateToMyProperties(): void {
+    this.router.navigate([`/lessors/${this.lessorIdP}/properties`]).then(() => null);
   }
 }

@@ -19,13 +19,18 @@ export class PropertiesService {
     this.httpOptions = httpDataService.httpOptions;
   }
   // Create Property
-  createProperty(item): Observable<Property> {
-    return this.http.post<Property>(`${this.basePath}lessors/1/properties`, JSON.stringify(item), this.httpOptions)
+  createProperty(id, item): Observable<Property> {
+    return this.http.post<Property>(`${this.basePath}lessors/${id}/properties`, JSON.stringify(item), this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
   // Get Property by Id
-  getPropertyById(id): Observable<Property> {
-    return this.http.get<Property>(`${this.basePath}lessors/1/properties/${id}`, this.httpOptions )
+  getPropertyById(lessorId, id): Observable<Property> {
+    return this.http.get<Property>(`${this.basePath}lessors/${lessorId}/properties/${id}`, this.httpOptions )
+      .pipe(retry(2), catchError(this.handleError));
+  }
+  // Get List Property by LESSOR
+  getListPropertyByLessorId(lessorId): Observable<Property> {
+    return this.http.get<Property>(`${this.basePath}lessor/${lessorId}/properties`)
       .pipe(retry(2), catchError(this.handleError));
   }
   // Get Property Data
@@ -34,13 +39,13 @@ export class PropertiesService {
       .pipe(retry(2), catchError(this.handleError));
   }
   // Update Property
-  updateProperty(id, item): Observable<Property>{
-    return this.http.put<Property>(`${this.basePath}lessors/1/properties/${id}`, JSON.stringify(item), this.httpOptions)
+  updateProperty(lessorId, id, item): Observable<Property>{
+    return this.http.put<Property>(`${this.basePath}lessors/${lessorId}/properties/${id}`, JSON.stringify(item), this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
   // Delete Student
-  deleteProperty(id): Observable<any> {
-    return this.http.delete<Property>(`${this.basePath}lessors/1/properties/${id}`, this.httpOptions)
+  deleteProperty(lessorId, id): Observable<any> {
+    return this.http.delete<Property>(`${this.basePath}lessors/${lessorId}/properties/${id}`, this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
 }

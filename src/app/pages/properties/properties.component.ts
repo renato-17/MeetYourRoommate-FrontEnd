@@ -5,7 +5,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { HttpDataService } from '../../services/http-data.service';
 import * as _ from 'lodash';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Route, Router} from '@angular/router';
 import {Property} from '../../models/property';
 import {PropertiesService} from '../../services/properties.service';
 
@@ -18,19 +18,31 @@ export class PropertiesComponent implements OnInit, AfterViewInit {
   @ViewChild('propertyForm', { static: false })
   propertyForm: NgForm;
   propertyData: Property;
+  lessorId: number;
+  lessorIdP: number;
   dataSource = new MatTableDataSource();
   displayedColumns: string[] = ['id', 'address', 'description', 'actions'];
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   isEditMode = false;
 
-  constructor(private httpDataService: PropertiesService, private router: Router) {
+  constructor(private httpDataService: PropertiesService, private router: Router, private route: ActivatedRoute) {
     this.propertyData = {} as Property;
   }
 
   ngOnInit(): void {
     this.dataSource.sort = this.sort;
-    this.getAllProperties();
+    this.lessorId = Number(this.route.params.subscribe( params => {
+      if (params.lessorId) {
+        const id = params.lessorId;
+        console.log('id', id);
+        this.lessorIdP = id;
+        this.getAllProperties(id);
+        return id;
+      } else {
+        return 0;
+      }
+    }));
   }
   ngAfterViewInit(): void {
     this.dataSource.paginator = this.paginator;
@@ -43,8 +55,8 @@ export class PropertiesComponent implements OnInit, AfterViewInit {
       this.dataSource.paginator.firstPage();
     }
   }
-  getAllProperties(): void {
-    this.httpDataService.getPropertyList().subscribe((response: any) => {
+  getAllProperties(id): void {
+    this.httpDataService.getListPropertyByLessorId(id).subscribe((response: any) => {
       if (!response){
         return;
       }
@@ -56,7 +68,7 @@ export class PropertiesComponent implements OnInit, AfterViewInit {
     this.propertyForm.resetForm();
   }
   deleteItem(id): void {
-    this.httpDataService.deleteProperty(id).subscribe(() => {
+    this.httpDataService.deleteProperty(this.lessorIdP, id).subscribe(() => {
       this.dataSource.data = this.dataSource.data.filter((o: Property) => {
         return o.id !== id ? o : false;
       });
@@ -65,13 +77,13 @@ export class PropertiesComponent implements OnInit, AfterViewInit {
   }
   addProperty(): void {
     const newProperty = {address: this.propertyData.address, description: this.propertyData.description};
-    this.httpDataService.createProperty(newProperty).subscribe((response: any) => {
+    this.httpDataService.createProperty(this.lessorIdP, newProperty).subscribe((response: any) => {
       this.dataSource.data.push({...response});
       this.dataSource.data = this.dataSource.data.map(o => o);
     });
   }
   updateProperty(): void {
-    this.httpDataService.updateProperty(this.propertyData.id, this.propertyData)
+    this.httpDataService.updateProperty(this.lessorIdP, this.propertyData.id, this.propertyData)
       .subscribe((response: any) => {
         this.dataSource.data = this.dataSource.data.map((o: Property) => {
           if (o.id === response.id) {
@@ -94,9 +106,9 @@ export class PropertiesComponent implements OnInit, AfterViewInit {
     }
   }
   navigateToAddProperty(): void {
-    this.router.navigate(['/properties/new']).then(() => null);
+    this.router.navigate([`/lessors/${this.lessorIdP}/properties/new`]).then(() => null);
   }
   navigateToEditProperty(propertyId): void {
-    this.router.navigate([`/lessors/1/properties/${propertyId}`]).then(() => null);
+    this.router.navigate([`/lessors/${this.lessorIdP}/properties/${propertyId}`]).then(() => null);
   }
 }

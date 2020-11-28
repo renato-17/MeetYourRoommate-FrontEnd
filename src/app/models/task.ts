@@ -3,7 +3,7 @@ import {Data} from "@angular/router";
 export class Task {
   createdAt: Data;
   updatedAt: Data;
-  id: Number;
+  id: number;
   description: string;
   active: boolean;
 }
