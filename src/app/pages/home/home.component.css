@@ -1,6 +1,24 @@
-.background {
-    background-image: url("https://revistazoomempresarial.files.wordpress.com/2019/06/roommates.jpg");
+.button-container{
+  align-content: center;
+  display: flex;
+  flex-direction: row;
+  margin-top: 100px;
+  padding-bottom: 100px;
 }
-.classic_button_next{ position: absolute; left: 400px; top: 50px; }
-.classic_button_prev { position: absolute; right: 400px; top: 50px; }
+.next-button{
+  display: block;
+  margin-bottom: 25px;
+}
+#student-area{
+  display: flex;
+  flex-direction: column;
+  margin-right: 100px;
+  margin-left: auto;
+}
 
+#lessor-area{
+  display: flex;
+  flex-direction: column;
+  margin-left: 100px;
+  margin-right: auto;
+}

@@ -1,12 +1,31 @@
-<mat-card style="text-align: center">
-    <ng-container>
-    <img mat-card-image  src="https://revistazoomempresarial.files.wordpress.com/2019/06/roommates.jpg">
+<mat-card style="text-align: center" class="background">
 
-        <button mat-raised-button color="secondary" class="classic_button_prev btn btn-primary btn-large" style="margin-right: 3px" (click)="navigateToStudentProfile()">
-            Iniciar Sesión Estudiante
+  <ng-container *ngIf="currentUser; else loggedOut">
+
+    <h1>Bienvenido a Meet Your Roomate</h1>
+
+  </ng-container>
+
+  <ng-container #loggedOut>
+    <h1>Bienvenido a Meet Your Roomate</h1>
+    <h2>Please Login or Register first.</h2>
+    <div class="button-container">
+      <div id="student-area">
+        <button mat-raised-button color="secondary" class="next-button btn btn-primary btn-large" style="margin-right: 3px" (click)="navigateToLogInStudent()">
+          Iniciar Sesión como Estudiante
         </button>
-        <button mat-raised-button color="secondary" class="classic_button_next btn btn-primary btn-large" style="margin-right: 3px" (click)="navigateToLessorProfile()">
-            Iniciar Sesión Consultor
+        <button mat-raised-button color="secondary" class="next-button btn btn-primary btn-large" style="margin-right: 3px" (click)="navigateToRegisterStudent()">
+          Registrate como Estudiante
         </button>
-    </ng-container>
+      </div>
+      <div id="lessor-area">
+        <button mat-raised-button color="secondary" class="next-button btn btn-primary btn-large" style="margin-right: 3px" (click)="navigateToLogInLessor()">
+          Iniciar Sesión como Arrendador
+        </button>
+        <button mat-raised-button color="secondary" class="next-button btn btn-primary btn-large" style="margin-right: 3px" (click)="navigateToRegisterLessor()">
+          Registrate como Arrendador
+        </button>
+      </div>
+    </div>
+  </ng-container>
 </mat-card>

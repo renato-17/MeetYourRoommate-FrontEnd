@@ -11,6 +11,12 @@ import {TeamsComponent} from './pages/teams/teams.component';
 import {TeamComponent} from './pages/team/team.component';
 import {ReservationsComponent} from './pages/reservations/reservations.component';
 import {StudentProfileComponent} from './pages/student-profile/student-profile.component';
+import {AdsComponent} from "./pages/ads/ads.component";
+import {MyprofileComponent} from "./pages/myprofile/myprofile.component";
+import {RegisterStudentComponent} from "./pages/register-student/register-student.component";
+import {RegisterLessorComponent} from "./pages/register-lessor/register-lessor.component";
+import {LoginLessorComponent} from "./pages/login-lessor/login-lessor.component";
+import {LoginStudentComponent} from "./pages/login-student/login-student.component";
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
@@ -25,7 +31,13 @@ const routes: Routes = [
   { path: 'teams', component: TeamsComponent },
   { path: 'teams/new', component: TeamComponent },
   { path: 'teams/:id', component: TeamComponent},
-  { path: 'reservations', component: ReservationsComponent }
+  { path: 'reservations', component: ReservationsComponent },
+  {path: 'ads', component: AdsComponent},
+  {path: 'myprofile', component: MyprofileComponent},
+  {path: 'registerStudent', component: RegisterStudentComponent},
+  {path: 'registerLessor', component: RegisterLessorComponent},
+  {path: 'loginStudent', component: LoginStudentComponent},
+  {path: 'loginLessor', component: LoginLessorComponent}
   ];
 
 @NgModule({

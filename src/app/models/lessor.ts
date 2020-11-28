@@ -8,4 +8,6 @@ export class Lessor {
   birthdate: Date;
   address: string;
   premium: boolean;
+  mail: string;
+  password: string;
 }

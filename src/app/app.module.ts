@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {Input, NgModule} from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,7 +11,7 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { StudentComponent } from './pages/student/student.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
@@ -27,6 +27,13 @@ import {TeamComponent} from './pages/team/team.component';
 import {TeamsComponent} from './pages/teams/teams.component';
 import { ReservationsComponent } from './pages/reservations/reservations.component';
 import { StudentProfileComponent } from './pages/student-profile/student-profile.component';
+import {AdsComponent} from "./pages/ads/ads.component";
+import {MyprofileComponent} from "./pages/myprofile/myprofile.component";
+import { RegisterStudentComponent } from './src/app/pages/register-student/register-student.component';
+import { RegisterLessorComponent } from './pages/register-lessor/register-lessor.component';
+import {MatSelectModule} from "@angular/material/select";
+import { LoginStudentComponent } from './pages/login-student/login-student.component';
+import { LoginLessorComponent } from './pages/login-lessor/login-lessor.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +49,13 @@ import { StudentProfileComponent } from './pages/student-profile/student-profile
     LessorProfileComponent,
     TeamsComponent,
     ReservationsComponent,
-    StudentProfileComponent
+    StudentProfileComponent,
+    AdsComponent,
+    MyprofileComponent,
+    RegisterStudentComponent,
+    RegisterLessorComponent,
+    LoginStudentComponent,
+    LoginLessorComponent
   ],
   imports: [
     HttpClientModule,
@@ -58,7 +71,10 @@ import { StudentProfileComponent } from './pages/student-profile/student-profile
     MatGridListModule,
     MatInputModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatInputModule,
+    MatSelectModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

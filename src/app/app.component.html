@@ -1,5 +1,12 @@
 <mat-toolbar color="warn">
   <mat-toolbar-row>
+    <span class="example-spacer"></span>
+    <button mat-button>Cerrar Sesion</button>
+    <button mat-button routerLink="/myprofile" routerLinkActive="active">Mi Perfil</button>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-toolbar color="warn">
+  <mat-toolbar-row>
     <button mat-icon-button>
       <mat-icon>menu</mat-icon>
     </button>
@@ -9,6 +16,7 @@
       <a mat-flat-button class="button" routerLink="/" routerLinkActive="active">Principal</a>
       <a mat-flat-button class="button" routerLink="/students" routerLinkActive="active">Roommates</a>
       <a mat-flat-button class="button" routerLink="/properties" routerLinkActive="active">Propiedades</a>
+      <button mat-button routerLink="/ads" routerLinkActive="active">Anuncios</button>
       <a mat-flat-button class="button" routerLink="/teams" routerLinkActive="active">Teams</a>
       <a mat-flat-button class="button"  routerLink="/reservations" routerLinkActive="active">Reservaciones</a></div>
   </mat-toolbar-row>

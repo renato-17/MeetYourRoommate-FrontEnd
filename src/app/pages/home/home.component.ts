@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
+import {TokenStorageService} from "../../services/token-storage.service";
 
 @Component({
   selector: 'app-home',
@@ -7,18 +8,26 @@ import {Router} from '@angular/router';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
-  constructor(private router: Router) { }
+  currentUser: any;
+  constructor(private router: Router,
+              private tokenStorageService: TokenStorageService) { }
 
   ngOnInit(): void {
+    this.currentUser = this.tokenStorageService.getUser();
   }
   navigateToReservations(): void {
     this.router.navigate(['/reservations']).then(() => null);
   }
-  navigateToLessorProfile(): void {
-    this.router.navigate(['/lessors/1']).then(() => null);
+  navigateToLogInStudent(): void {
+    this.router.navigate(['/loginStudent/']).then(() => null);
   }
-  navigateToStudentProfile(): void {
-    this.router.navigate(['/students/2']).then(() => null);
+  navigateToRegisterStudent(): void {
+    this.router.navigate(['/registerStudent/']).then(() => null);
+  }
+  navigateToLogInLessor(): void {
+    this.router.navigate(['/loginLessor/']).then(() => null);
+  }
+  navigateToRegisterLessor(): void {
+    this.router.navigate(['/registerLessor/']).then(() => null);
   }
 }

@@ -1,0 +1,54 @@
+
+<div class="profile-grid" *ngIf="currentUser; else loggedOut">
+  <div>
+    <h2>{{studentData.firstName}} {{studentData.lastName}}</h2>
+    <img mat-card-image class="profile-pic" src="data:image/png;base64,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">
+  </div>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Tu Información</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p></p>
+      <p>
+        <mat-label>DNI: {{studentData.dni}}</mat-label>
+      </p>
+      <p>
+        <mat-label>Número de teléfono: {{studentData.phoneNumber}}</mat-label>
+      </p>
+      <p>
+        <mat-label>Género: {{studentData.gender}}</mat-label>
+      </p>
+
+      <p>
+        <mat-label>Dirección: {{studentData.address}}</mat-label>
+      </p>
+      <p>
+        <mat-label>Descripción: {{studentData.description}}</mat-label>
+      </p>
+      <p>
+        <mat-label>Hobbies: {{studentData.hobbies}}</mat-label>
+      </p>
+      <p>
+        <mat-label *ngIf="studentData.getbSmoker==false; else elseBlock">Fuma: No</mat-label>
+        <ng-template #elseBlock>
+          Fuma: Si
+        </ng-template>
+      </p>
+    </mat-card-content>
+  </mat-card>
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <section class="example-section">
+        <mat-checkbox class="example-margin" color="warn">Terminé mi etapa de búsqueda</mat-checkbox>
+      </section>
+    </mat-toolbar-row>
+    <mat-toolbar-row>
+      <span class="example-spacer"></span>
+      <button mat-stroked-button >Editar</button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</div>
+<ng-template #loggedOut>
+  <h1>Please Login first.</h1>
+</ng-template>

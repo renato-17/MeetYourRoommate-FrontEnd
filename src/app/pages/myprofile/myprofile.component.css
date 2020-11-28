@@ -1,0 +1,62 @@
+.mat-toolbar.mat-primary {
+  background: #fff;
+  color: black;
+}
+.example-spacer {
+  flex: 1 1 auto;
+}
+.example-section {
+  margin: 12px 0;
+}
+.example-margin {
+  margin: 0 12px;
+}
+.profile-pic{
+  width: 10vw;
+  height: auto;
+}
+.profile-pic {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.profile-grid {
+  display: grid;
+  grid-template-rows: 0.5fr;
+  grid-template-columns: 0.5fr 1fr;
+  grid-template-areas:
+              "image description description"
+              "info hobbies hobbies"
+              "info hobbies hobbies"
+;
+}
+.profile-grid h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-top: 10px;
+}
+mat-card-title{
+  font-size: 2rem;
+}
+.profile-desc{
+  grid-area: description;
+}
+.profile-hobbies{
+  grid-area: hobbies;
+}
+.profile-info{
+  grid-area: info;
+}
+#profile-img {
+  grid-area: image;
+  display: inline-block;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  width: 100px;
+  height: auto;
+}
+#social-media-buttons {
+  margin-left: 50px;
+}

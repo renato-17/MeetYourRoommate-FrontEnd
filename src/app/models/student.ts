@@ -10,4 +10,6 @@ export class Student {
   description: string;
   hobbies: string;
   getbSmoker: boolean;
+  mail: string;
+  password: string;
 }

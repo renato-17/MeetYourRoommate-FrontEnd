@@ -1,5 +1,5 @@
 import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
-import { NgForm } from '@angular/forms';
+import {FormBuilder, NgForm} from '@angular/forms';
 import { Student } from '../../models/student';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
@@ -23,7 +23,7 @@ export class StudentsComponent implements OnInit, AfterViewInit {
   @ViewChild(MatSort) sort: MatSort;
   isEditMode = false;
 
-  constructor(private httpDataService: StudentService, private router: Router) {
+  constructor(private httpDataService: StudentService, private router: Router, private formBuilder: FormBuilder) {
     this.studentData = {} as Student;
   }
 

@@ -17,13 +17,20 @@ export class StudentComponent implements OnInit {
   isEditMode = false;
   studentId: number;
   studentData: Student = new Student();
-  defaultStudent = { id: 0, firstName: '', lastName: '', dni: '', phoneNumber: '',
+  defaultStudent = {
+    id: 0,
+    firstName: '',
+    lastName: '',
+    dni: '',
+    phoneNumber: '',
     gender: '',
     birthdate: null,
     address: '',
     description: '',
     hobbies: '',
-    getbSmoker: null
+    getbSmoker: null,
+    mail: '',
+    password: ''
   };
   constructor(private httpDataService: StudentService, private router: Router, private route: ActivatedRoute) { }
 
