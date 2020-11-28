@@ -9,7 +9,7 @@ import {catchError, retry} from 'rxjs/operators';
 })
 export class HttpDataService {
   // MYR Endpoint
-  basePath = 'https://cors-anywhere.herokuapp.com/https://meetyourrommateapi.herokuapp.com/api';
+  basePath = 'https://meetyourrommateapi.herokuapp.com/api/';
   constructor(public http: HttpClient) { }
   // Http Default Options
   httpOptions = {

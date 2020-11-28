@@ -25,4 +25,29 @@ export class LessorsService {
     return this.http.get<Lessor>(`${this.basePath}lessors/${id}`, this.httpOptions )
       .pipe(retry(2), catchError(this.handleError));
   }
+  // Create Lessor
+  createItem(item): Observable<Lessor> {
+    return this.http.post<Lessor>(`${this.basePath}lessors`, JSON.stringify(item), this.httpOptions)
+      .pipe(retry(2), catchError(this.handleError));
+  }
+  // Get Lessor by Id
+  getItem(id): Observable<Lessor> {
+    return this.http.get<Lessor>(`${this.basePath}lessors/${id}`, this.httpOptions )
+      .pipe(retry(2), catchError(this.handleError));
+  }
+  // Get Lessor Data
+  getList(): Observable<Lessor>{
+    return this.http.get<Lessor>(`${this.basePath}lessors`)
+      .pipe(retry(2), catchError(this.handleError));
+  }
+  // Update Lessor
+  updateItem(id, item): Observable<Lessor>{
+    return this.http.put<Lessor>(`${this.basePath}lessors/${id}`, JSON.stringify(item), this.httpOptions)
+      .pipe(retry(2), catchError(this.handleError));
+  }
+  // Delete Lessor
+  deleteItem(id): Observable<any> {
+    return this.http.delete<Lessor>(`${this.basePath}lessors/${id}`, this.httpOptions)
+      .pipe(retry(2), catchError(this.handleError));
+  }
 }

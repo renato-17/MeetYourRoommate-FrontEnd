@@ -1,0 +1,92 @@
+
+<mat-card class="form-container">
+  <mat-card-header>
+    <mat-card-title>
+      <h1>Register as a Lessor</h1>
+    </mat-card-title>
+  </mat-card-header>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    Value: {{ form.value | json}}
+    <div>
+    <mat-card-content>
+      <mat-form-field appearance="outline" class="form-field" color="warn">
+        <mat-label>Email</mat-label>
+        <input matInput
+               formControlName="mail"
+               type="email"
+               placeholder="Ex. user@gmail.com"
+               required>
+
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="form-field" color="warn">
+        <mat-label>Password</mat-label>
+        <input matInput
+               formControlName="password"
+               type="password"
+               placeholder="Ex. 12345"
+               required>
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="form-field" color="warn">
+        <mat-label>First Name</mat-label>
+        <input matInput
+               formControlName="firstName"
+               placeholder="Ex. Jorge"
+               required>
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="form-field" color="warn">
+        <mat-label>Last Name</mat-label>
+        <input matInput
+               formControlName="lastName"
+               placeholder="Ex. Perez"
+               required>
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="form-field" color="warn">
+        <mat-label>DNI</mat-label>
+        <input matInput
+               formControlName="dni"
+               placeholder="Ex. Dni idk lol"
+               required>
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="form-field" color="warn">
+        <mat-label>Phone Number</mat-label>
+        <input matInput
+               formControlName="phoneNumber"
+               placeholder="Ex. 98696969"
+               required>
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="form-field" color="warn">
+        <mat-label>Gender</mat-label>
+        <mat-select formControlName="gender" >
+          <mat-option value="male">Male</mat-option>
+          <mat-option value="female">Female</mat-option>
+          <mat-option value="other">Other</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="form-field" color="warn">
+        <mat-label>Birth Date</mat-label>
+        <input matInput
+               formControlName="birthdate"
+               placeholder="Ex. Perez"
+               required>
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="form-field" color="warn">
+        <mat-label>Address</mat-label>
+        <input matInput
+               formControlName="address"
+               placeholder="Ex. Test Street 123"
+               required>
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button
+              class="submit-button"
+              color="warn"
+              type="submit">
+        Register
+      </button>
+    </mat-card-actions>
+    </div>
+  </form>
+</mat-card>
+
+

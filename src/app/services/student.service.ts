@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs';
 import {Student} from '../models/student';
 import {catchError, retry} from 'rxjs/operators';
-import {HttpDataService} from '../services/http-data.service';
+import {HttpDataService} from './http-data.service';
 import {HttpClient} from '@angular/common/http';
 
 @Injectable({
@@ -21,6 +21,7 @@ export class StudentService {
   }
   // Create Student
   createItem(item): Observable<Student> {
+    console.log(item);
     return this.http.post<Student>(`${this.basePath}students`, JSON.stringify(item), this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
