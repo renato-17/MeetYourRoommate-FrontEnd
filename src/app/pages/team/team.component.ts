@@ -3,12 +3,11 @@ import {NgForm} from '@angular/forms';
 import {Team} from '../../models/team';
 import {ActivatedRoute, Router} from '@angular/router';
 import * as _ from 'lodash';
-import {TeamService} from "../../services/team.service";
-import {MatTableDataSource} from "@angular/material/table";
-import {MatPaginator} from "@angular/material/paginator";
-import {MatSort} from "@angular/material/sort";
-import {TaskService} from "../../services/task.service";
-import {Task} from "../../models/task";
+import {TeamService} from '../../services/team.service';
+import {MatTableDataSource} from '@angular/material/table';
+import {MatPaginator} from '@angular/material/paginator';
+import {MatSort} from '@angular/material/sort';
+import {TaskService} from '../../services/task.service';
 
 @Component({
   selector: 'app-team',
@@ -22,11 +21,11 @@ export class TeamComponent implements OnInit {
   teamId2: string;
   teamData: Team = new Team();
   dataSource = new MatTableDataSource();
-  dataSourceTask= new MatTableDataSource();
-  taskData= { description: ''};
+  dataSourceTask = new MatTableDataSource();
+  taskData = { description: ''};
   StudentsNames = [];
   TaskS = [];
-  NamesArray= [];
+  NamesArray = [];
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   defaultTeam = { id: 0, name: ''};
@@ -35,7 +34,7 @@ export class TeamComponent implements OnInit {
 
   ngOnInit(): void {
     this.dataSource.sort = this.sort;
-    this.dataSourceTask.sort= this.sort;
+    this.dataSourceTask.sort = this.sort;
     this.teamId = Number(this.route.params.subscribe( params => {
       if (params.id) {
         const id = params.id;
@@ -48,7 +47,7 @@ export class TeamComponent implements OnInit {
     }));
   }
   ngAfterViewInit(): void {
-    this.dataSource.paginator = this.paginator
+    this.dataSource.paginator = this.paginator;
   }
   navigateToTeam(): void {
     this.router.navigate(['/teams']);
@@ -61,42 +60,42 @@ export class TeamComponent implements OnInit {
       .subscribe((response: Team) => {
         this.teamData = {} as Team;
         this.teamData = _.cloneDeep(response);
-        console.log('response',response);
-        console.log('data',this.teamData);
-        this.teamId2=id;
+        console.log('response', response);
+        console.log('data', this.teamData);
+        this.teamId2 = id;
         this.GetListStudent(id);
         this.GetTasks(id);
       });
   }
-  GetTasks(id){
+  GetTasks(id): void {
     this.TaskService.getList(id)
-      .subscribe((response: any)=>{
-        if(!response){
+      .subscribe((response: any) => {
+        if (!response){
           return;
         }
         this.dataSourceTask = new MatTableDataSource(response.content);
         this.TaskS = this.dataSourceTask.filteredData;
         console.log('taskss', this.dataSourceTask);
         console.log('taskss123231', this.TaskS);
-      })
+      });
   }
-  GetListStudent(id){
+  GetListStudent(id): void {
     this.httpDataService.getListStudent(id)
-      .subscribe((response: any)=>{
-        if(!response){
+      .subscribe((response: any) => {
+        if (!response){
           return;
         }
         this.dataSource = new MatTableDataSource(response.content);
         this.StudentsNames = this.dataSource.filteredData;
-        this.StudentsNames.forEach((a)=>{
+        this.StudentsNames.forEach((a) => {
           this.NamesArray.push(a.firstName);
-        })
+        });
         console.log('estudiantes', this.dataSource);
         console.log('namess', this.StudentsNames);
-      })
+      });
   }
   addTask(): void {
-    this.TaskService.createItem(this.teamId2,this.taskData)
+    this.TaskService.createItem(this.teamId2, this.taskData)
       .subscribe(() => {
         this.refreshList();
       });
@@ -110,19 +109,19 @@ export class TeamComponent implements OnInit {
     this.refreshList();
   }
   checkTask(id): void {
-    this.TaskService.patchItem(this.teamId2,id)
+    this.TaskService.patchItem(this.teamId2, id)
       .subscribe(() => {
       });
     this.refreshList();
   }
-  refreshList(){
+  refreshList(): void {
     this.teamId = Number(this.route.params.subscribe( params => {
       if (params.id) {
         const id = params.id;
         this.httpDataService.getItem(id)
           .subscribe((response: Team) => {
             this.GetTasks(id);
-            this.taskData.description= '';
+            this.taskData.description = '';
           });
         return id;
       } else {
@@ -131,10 +130,10 @@ export class TeamComponent implements OnInit {
       }
     }));
   }
-  deleteTask(id){
+  deleteTask(id): void {
     console.log(this.teamId2);
     console.log(id.toString());
-    this.TaskService.deleteItem(this.teamId2,id)
+    this.TaskService.deleteItem(this.teamId2, id)
       .subscribe(() => {
       });
     this.refreshList();

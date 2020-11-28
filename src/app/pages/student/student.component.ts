@@ -6,6 +6,7 @@ import { Router, ActivatedRoute} from '@angular/router';
 import * as _ from 'lodash';
 import {StudentService} from '../../services/student.service';
 
+
 @Component({
   selector: 'app-student',
   templateUrl: './student.component.html',
@@ -91,4 +92,5 @@ export class StudentComponent implements OnInit {
       console.log('Invalid Data');
     }
   }
+
 }

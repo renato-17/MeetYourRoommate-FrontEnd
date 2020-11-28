@@ -125,5 +125,8 @@
       }
     }
   },
-  "defaultProject": "rommates-frontend"
+  "defaultProject": "rommates-frontend",
+  "cli": {
+    "analytics": "b52c03ad-ac37-497f-8b9d-a4b8399a4ec3"
+  }
 }

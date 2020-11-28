@@ -47,6 +47,11 @@ export class TeamService {
     return this.http.delete<Team>(`${this.basePath}teams/${id}`, this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
+  // Get Team by StudentId
+  getTeamByStudent(id): Observable<Team>{
+    return this.http.get<Team[]>(`${this.basePath}students/${id}/team`)
+      .pipe(retry(2), catchError(this.handleError));
+  }
 
   // Get Student Data
   getListStudent(id): Observable<Student>{
