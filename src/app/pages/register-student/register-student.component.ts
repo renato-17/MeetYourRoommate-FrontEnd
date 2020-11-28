@@ -28,8 +28,6 @@ export class RegisterStudentComponent implements OnInit {
   ngOnInit(): void {
     this.dataSource.sort = this.sort;
     this.form = this.formBuilder.group({
-      mail: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required]],
       firstName: ['', [Validators.required]],
       lastName: ['', [Validators.required]],
       dni: ['', [Validators.required]],
@@ -39,22 +37,40 @@ export class RegisterStudentComponent implements OnInit {
       address: ['', [Validators.required]],
       description: ['', [Validators.required]],
       hobbies: ['', [Validators.required]],
-      getbSmoker: ['', [Validators.required]]
+      isbSmoker: ['', [Validators.required]],
+      mail: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required]],
     });
   }
 
   addStudent(): void {
-    const newStudent = {firstName: this.studentData.firstName, lastName: this.studentData.lastName, address: this.studentData.address};
-    this.httpDataService.createItem(this.form.value);
+    const newStudent = {
+      firstName:  this.form.get("firstName").value,
+      lastName: this.form.get("lastName").value,
+      dni: this.form.get("dni").value,
+      phoneNumber:  this.form.get("phoneNumber").value,
+      gender:  this.form.get("gender").value,
+      birthdate: this.form.get("birthdate").value,
+      address:  this.form.get("address").value,
+      description: this.form.get("description").value,
+      hobbies:  this.form.get("hobbies").value,
+      isbSmoker:  this.form.get("isbSmoker").value,
+      mail: this.form.get("mail").value,
+      password:  this.form.get("password").value,
+    }
+    console.log("New Student: ");
+    console.log(newStudent);console.log(this.form.getRawValue());
+    this.httpDataService.createItem(this.form.getRawValue());
   }
 
   onSubmit(): void {
-    console.log(this.form.get('mail').value);
-    console.log(this.form.value);
+    console.log(this.form);
     if (this.form.invalid) {
+      console.log("Form is invalid");
       return;
     }
-    console.log(this.form.value);
+    console.log("Form is valid");
     this.addStudent();
+    this.router.navigate(['/']).then(() => null);
   }
 }

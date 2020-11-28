@@ -1,5 +1,12 @@
-mat-card{
+.form-field {
   display: block;
-  margin-left: auto;
+  width: 25vw;
+  margin-left: 5vw;
   margin-right: auto;
+}
+
+.submit-button{
+  display: block;
+  left: 10vw;
+  width: 10vw;
 }

@@ -29,11 +29,11 @@ import { ReservationsComponent } from './pages/reservations/reservations.compone
 import { StudentProfileComponent } from './pages/student-profile/student-profile.component';
 import {AdsComponent} from "./pages/ads/ads.component";
 import {MyprofileComponent} from "./pages/myprofile/myprofile.component";
-import { RegisterStudentComponent } from './src/app/pages/register-student/register-student.component';
 import { RegisterLessorComponent } from './pages/register-lessor/register-lessor.component';
 import {MatSelectModule} from "@angular/material/select";
 import { LoginStudentComponent } from './pages/login-student/login-student.component';
 import { LoginLessorComponent } from './pages/login-lessor/login-lessor.component';
+import {RegisterStudentComponent} from "./pages/register-student/register-student.component";
 
 @NgModule({
   declarations: [
@@ -52,8 +52,8 @@ import { LoginLessorComponent } from './pages/login-lessor/login-lessor.componen
     StudentProfileComponent,
     AdsComponent,
     MyprofileComponent,
-    RegisterStudentComponent,
     RegisterLessorComponent,
+    RegisterStudentComponent,
     LoginStudentComponent,
     LoginLessorComponent
   ],

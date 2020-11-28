@@ -5,15 +5,16 @@
     </h1>
   </mat-card-header>
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    Value: {{ form.value | json}}
     <mat-card-content>
-      <mat-form-field appearance="outline" class="form-field">
+      <mat-form-field appearance="outline" class="form-field" color="warn">
         <mat-label>Email</mat-label>
         <input matInput
                formControlName="mail"
                placeholder="Ex. user@gmail.com"
                required>
       </mat-form-field>
-      <mat-form-field appearance="outline" class="form-field">
+      <mat-form-field appearance="outline" class="form-field" color="warn">
         <mat-label>Password</mat-label>
         <input matInput
                formControlName="password"
@@ -21,35 +22,35 @@
                placeholder="Ex. 12345"
                required>
       </mat-form-field>
-      <mat-form-field appearance="outline" class="form-field">
+      <mat-form-field appearance="outline" class="form-field" color="warn">
         <mat-label>First Name</mat-label>
         <input matInput
                formControlName="firstName"
                placeholder="Ex. Jorge"
                required>
       </mat-form-field>
-      <mat-form-field appearance="outline" class="form-field">
+      <mat-form-field appearance="outline" class="form-field" color="warn">
         <mat-label>Last Name</mat-label>
         <input matInput
                formControlName="lastName"
                placeholder="Ex. Perez"
                required>
       </mat-form-field>
-      <mat-form-field appearance="outline" class="form-field">
+      <mat-form-field appearance="outline" class="form-field" color="warn">
         <mat-label>DNI</mat-label>
         <input matInput
-               formControlName="DNI"
+               formControlName="dni"
                placeholder="Ex. Dni idk lol"
                required>
       </mat-form-field>
-      <mat-form-field appearance="outline" class="form-field">
+      <mat-form-field appearance="outline" class="form-field" color="warn">
         <mat-label>Phone Number</mat-label>
         <input matInput
                formControlName="phoneNumber"
                placeholder="Ex. 98696969"
                required>
       </mat-form-field>
-      <mat-form-field appearance="outline" class="form-field">
+      <mat-form-field appearance="outline" class="form-field" color="warn">
         <mat-label>Gender</mat-label>
         <mat-select formControlName="gender" >
           <mat-option value="male">Male</mat-option>
@@ -57,29 +58,35 @@
           <mat-option value="other">Other</mat-option>
         </mat-select>
       </mat-form-field>
-
-      <mat-form-field appearance="outline" class="form-field">
+      <mat-form-field appearance="outline" class="form-field" color="warn">
+        <mat-label>Birth Date</mat-label>
+        <input matInput
+               formControlName="birthdate"
+               placeholder="Ex. Perez"
+               required>
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="form-field" color="warn">
         <mat-label>Address</mat-label>
         <input matInput
                formControlName="address"
                placeholder="Ex. Test Street 123"
                required>
       </mat-form-field>
-      <mat-form-field appearance="outline" class="form-field">
+      <mat-form-field appearance="outline" class="form-field" color="warn">
         <mat-label>Description</mat-label>
         <input matInput
                formControlName="description"
                placeholder="Ex. I am responsible"
                required>
       </mat-form-field>
-      <mat-form-field appearance="outline" class="form-field">
+      <mat-form-field appearance="outline" class="form-field" color="warn">
         <mat-label>Hobbies</mat-label>
         <input matInput
                formControlName="hobbies"
                placeholder="Studying"
                required>
       </mat-form-field>
-      <mat-form-field appearance="outline" class="form-field">
+      <mat-form-field appearance="outline" class="form-field" color="warn">
         <mat-label>Do you smoke?</mat-label>
         <mat-select formControlName="isbSmoker">
           <mat-option value="true">Yes</mat-option>
