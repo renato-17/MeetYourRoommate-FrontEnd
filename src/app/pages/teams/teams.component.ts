@@ -7,6 +7,7 @@ import {MatSort} from '@angular/material/sort';
 import {HttpDataService} from '../../services/http-data.service';
 import {Router} from '@angular/router';
 import {Observable} from 'rxjs';
+import {TeamService} from "../../services/team.service";
 
 @Component({
   selector: 'app-teams',
@@ -21,7 +22,7 @@ export class TeamsComponent implements OnInit, AfterViewInit {
   displayedColumns: string[] = ['id', 'name'];
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
-  constructor(private httpDataService: HttpDataService, private router: Router) {
+  constructor(private httpDataService: TeamService, private router: Router) {
     this.teamData = {} as Team;
   }
 
@@ -48,11 +49,11 @@ export class TeamsComponent implements OnInit, AfterViewInit {
     });
   }
   addTeam(): void {
-    const newTeam = { name: this.teamData.name};
-    this.httpDataService.createItem(newTeam).subscribe((response: any) => {
-      this.dataSource.data.push({...response});
-      this.dataSource.data = this.dataSource.data.map(o => o);
-    });
+    // const newTeam = { name: this.teamData.name};
+    // this.httpDataService.createItem(newTeam).subscribe((response: any) => {
+    //  this.dataSource.data.push({...response});
+    //  this.dataSource.data = this.dataSource.data.map(o => o);
+    // });
   }
   onSubmit(): void {
     if (this.teamForm.form.valid) {
