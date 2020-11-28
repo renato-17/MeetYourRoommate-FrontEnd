@@ -34,6 +34,8 @@ import {MatSelectModule} from "@angular/material/select";
 import { LoginStudentComponent } from './pages/login-student/login-student.component';
 import { LoginLessorComponent } from './pages/login-lessor/login-lessor.component';
 import {RegisterStudentComponent} from "./pages/register-student/register-student.component";
+import { HomeLessorComponent } from './pages/home-lessor/home-lessor.component';
+import { HomeStudentComponent } from './pages/home-student/home-student.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +58,9 @@ import {RegisterStudentComponent} from "./pages/register-student/register-studen
     RegisterLessorComponent,
     RegisterStudentComponent,
     LoginStudentComponent,
-    LoginLessorComponent
+    LoginLessorComponent,
+    HomeLessorComponent,
+    HomeStudentComponent
   ],
   imports: [
     HttpClientModule,

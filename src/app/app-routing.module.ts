@@ -17,6 +17,8 @@ import {RegisterStudentComponent} from "./pages/register-student/register-studen
 import {RegisterLessorComponent} from "./pages/register-lessor/register-lessor.component";
 import {LoginLessorComponent} from "./pages/login-lessor/login-lessor.component";
 import {LoginStudentComponent} from "./pages/login-student/login-student.component";
+import {HomeLessorComponent} from './pages/home-lessor/home-lessor.component';
+import {HomeStudentComponent} from './pages/home-student/home-student.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
@@ -38,7 +40,8 @@ const routes: Routes = [
   {path: 'registerLessor', component: RegisterLessorComponent},
   {path: 'loginStudent', component: LoginStudentComponent},
   {path: 'loginLessor', component: LoginLessorComponent},
-  {path: 'loginLessor', component: LoginLessorComponent},
+  {path: 'homeLessor', component: HomeLessorComponent},
+  {path: 'homeStudent', component: HomeStudentComponent},
   ];
 
 @NgModule({

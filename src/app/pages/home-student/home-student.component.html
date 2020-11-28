@@ -1,0 +1,17 @@
+<mat-grid-list cols="3" rowHeight=20px>
+  <mat-grid-tile>TEAMS</mat-grid-tile>
+  <mat-grid-tile>ROOMMATES</mat-grid-tile>
+  <mat-grid-tile>ANUNCIOS</mat-grid-tile>
+</mat-grid-list>
+<mat-grid-list cols="3"  rowHeight=300px>
+  <mat-grid-tile (click)="navigateToTeam()">
+    <img mat-card-image src='https://minutes.co/wp-content/uploads/2019/06/confident-team-1000x600.png'/>
+  </mat-grid-tile>
+  <mat-grid-tile  (click)="navigateToRoommate()">
+    <img mat-card-image src='https://aws.glamour.mx/prod/designs/v1/assets/620x414/197078.jpg'>
+  </mat-grid-tile>
+  <mat-grid-tile  (click)="navigateToAd()">
+    <img mat-card-image src='https://cdn.pixabay.com/photo/2016/10/28/16/31/website-1778529_960_720.png'>
+  </mat-grid-tile>
+
+</mat-grid-list>
