@@ -23,17 +23,16 @@ export class RegisterLessorComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.dataSource.sort = this.sort;
     this.form = this.formBuilder.group({
       mail: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required]],
-      firstName: ['', [Validators.required]],
-      lastName: ['', [Validators.required]],
-      dni: ['', [Validators.required]],
-      phoneNumber: ['', [Validators.required]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      firstName: ['', [Validators.required, Validators.minLength(5)]],
+      lastName: ['', [Validators.required, Validators.minLength(5)]],
+      dni: ['', [Validators.required], Validators.minLength(8), Validators.maxLength(8)],
+      phoneNumber: ['', [Validators.required], Validators.minLength(9), Validators.maxLength(9)],
       gender: ['', [Validators.required]],
       birthdate: ['', [Validators.required]],
-      address: ['', [Validators.required]],
+      address: ['', [Validators.required], Validators.minLength(10)],
       premium: [false]
     });
   }
@@ -63,4 +62,27 @@ export class RegisterLessorComponent implements OnInit {
     this.addLessor();
     this.router.navigate(['/']).then(() => null);
   }
+
+  get mail() {
+    return this.form.get("mail");
+  }
+  get firstName() {
+    return this.form.get("firstName");
+  }
+  get lastName() {
+    return this.form.get("lastName");
+  }
+  get password() {
+    return this.form.get("password");
+  }
+  get phoneNumber() {
+    return this.form.get("phoneNumber");
+  }
+  get dni() {
+    return this.form.get("dni");
+  }
+  get address() {
+    return this.form.get("address");
+  }
+
 }

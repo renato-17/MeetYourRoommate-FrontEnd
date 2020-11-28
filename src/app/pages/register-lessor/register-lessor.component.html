@@ -6,7 +6,6 @@
     </mat-card-title>
   </mat-card-header>
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
-    Value: {{ form.value | json}}
     <div>
     <mat-card-content>
       <mat-form-field appearance="outline" class="form-field" color="warn">
@@ -14,38 +13,52 @@
         <input matInput
                formControlName="mail"
                type="email"
-               placeholder="Ex. user@gmail.com"
+               placeholder="youremail@gmail.com"
                required>
-
+        <mat-error *ngIf="mail.invalid">
+          Submit a valid email address.
+        </mat-error>
       </mat-form-field>
       <mat-form-field appearance="outline" class="form-field" color="warn">
         <mat-label>Password</mat-label>
         <input matInput
                formControlName="password"
                type="password"
-               placeholder="Ex. 12345"
+               placeholder="Password"
                required>
+        <mat-error *ngIf="password.invalid">
+          Password too short.
+        </mat-error>
       </mat-form-field>
       <mat-form-field appearance="outline" class="form-field" color="warn">
         <mat-label>First Name</mat-label>
         <input matInput
                formControlName="firstName"
-               placeholder="Ex. Jorge"
+               placeholder="Your Name"
                required>
+        <mat-error *ngIf="firstName.invalid">
+          First Name too short.
+        </mat-error>
       </mat-form-field>
       <mat-form-field appearance="outline" class="form-field" color="warn">
         <mat-label>Last Name</mat-label>
         <input matInput
                formControlName="lastName"
-               placeholder="Ex. Perez"
+               placeholder="Your Last Name"
                required>
+        <mat-error *ngIf="lastName.invalid">
+          Last Name too short.
+        </mat-error>
       </mat-form-field>
       <mat-form-field appearance="outline" class="form-field" color="warn">
         <mat-label>DNI</mat-label>
         <input matInput
                formControlName="dni"
-               placeholder="Ex. Dni idk lol"
+               placeholder="DNI"
                required>
+        <mat-error *ngIf="dni.invalid">
+          Your DNI isn't the right length (8 digits).
+        </mat-error>
       </mat-form-field>
       <mat-form-field appearance="outline" class="form-field" color="warn">
         <mat-label>Phone Number</mat-label>
@@ -53,6 +66,9 @@
                formControlName="phoneNumber"
                placeholder="Ex. 98696969"
                required>
+        <mat-error *ngIf="phoneNumber.invalid">
+          Your phone number isn't the right length (9 digits).
+        </mat-error>
       </mat-form-field>
       <mat-form-field appearance="outline" class="form-field" color="warn">
         <mat-label>Gender</mat-label>
@@ -66,15 +82,18 @@
         <mat-label>Birth Date</mat-label>
         <input matInput
                formControlName="birthdate"
-               placeholder="Ex. Perez"
+               placeholder="1998-10-10 (YYYY-MM-DD)"
                required>
       </mat-form-field>
       <mat-form-field appearance="outline" class="form-field" color="warn">
         <mat-label>Address</mat-label>
         <input matInput
                formControlName="address"
-               placeholder="Ex. Test Street 123"
+               placeholder="Example Street 123"
                required>
+        <mat-error *ngIf="address.invalid">
+          Your address is too short.
+        </mat-error>
       </mat-form-field>
     </mat-card-content>
     <mat-card-actions>

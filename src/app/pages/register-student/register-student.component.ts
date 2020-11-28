@@ -24,18 +24,18 @@ export class RegisterStudentComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-      firstName: ['', [Validators.required]],
-      lastName: ['', [Validators.required]],
-      dni: ['', [Validators.required]],
-      phoneNumber: ['', [Validators.required]],
+      firstName: ['', [Validators.required], Validators.minLength(5)],
+      lastName: ['', [Validators.required], Validators.minLength(5)],
+      dni: ['', [Validators.required], Validators.minLength(8), Validators.maxLength(8)],
+      phoneNumber: ['', [Validators.required, Validators.minLength(9),Validators.maxLength(9)]],
       gender: ['', [Validators.required]],
       birthdate: ['', [Validators.required]],
-      address: ['', [Validators.required]],
-      description: ['', [Validators.required]],
-      hobbies: ['', [Validators.required]],
+      address: ['', [Validators.required, Validators.minLength(10)]],
+      description: ['', [Validators.required, Validators.minLength(10)]],
+      hobbies: ['', [Validators.required], Validators.minLength(10)],
       isbSmoker: ['', [Validators.required]],
       mail: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
     });
   }
 
@@ -55,8 +55,8 @@ export class RegisterStudentComponent implements OnInit {
       password:  this.form.get("password").value,
     }
     console.log("New Student: ");
-    console.log(newStudent);console.log(this.form.getRawValue());
-    this.httpDataService.createItem(newStudent);
+    console.log(newStudent);
+    this.httpDataService.createItem(newStudent).subscribe(()=>{});
   }
 
   onSubmit(): void {
@@ -69,4 +69,34 @@ export class RegisterStudentComponent implements OnInit {
     this.addStudent();
     this.router.navigate(['/']).then(() => null);
   }
+
+  get mail() {
+    return this.form.get("mail");
+  }
+  get firstName() {
+    return this.form.get("firstName");
+  }
+  get lastName() {
+    return this.form.get("lastName");
+  }
+  get password() {
+    return this.form.get("password");
+  }
+  get phoneNumber() {
+    return this.form.get("phoneNumber");
+  }
+  get description() {
+    return this.form.get("description");
+  }
+  get hobbies() {
+    return this.form.get("hobbies");
+  }
+  get dni() {
+    return this.form.get("dni");
+  }
+  get address() {
+    return this.form.get("address");
+  }
+
+
 }
