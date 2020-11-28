@@ -98,6 +98,7 @@ export class TeamComponent implements OnInit {
   addTask(): void {
     this.TaskService.createItem(this.teamId2,this.taskData)
       .subscribe(() => {
+        this.refreshList();
       });
   }
   addTeam(): void {
@@ -115,12 +116,14 @@ export class TeamComponent implements OnInit {
     this.refreshList();
   }
   refreshList(){
-    this.dataSource.sort = this.sort;
-    this.dataSourceTask.sort= this.sort;
     this.teamId = Number(this.route.params.subscribe( params => {
       if (params.id) {
         const id = params.id;
-        this.retrieveTeam(id);
+        this.httpDataService.getItem(id)
+          .subscribe((response: Team) => {
+            this.GetTasks(id);
+            this.taskData.description= '';
+          });
         return id;
       } else {
         this.resetTeam();

@@ -52,5 +52,6 @@ export class TeamService {
   getListStudent(id): Observable<Student>{
     return this.http.get<Student>(`${this.basePath}teams/${id}/students`)
       .pipe(retry(2), catchError(this.handleError));
+
   }
 }
