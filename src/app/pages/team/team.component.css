@@ -1,0 +1,26 @@
+mat-card {
+  margin: auto;
+  width: 35%;
+  display: block;
+  margin-top: 2rem;
+}
+.center{
+  padding-left: 5rem;
+}
+.taskP{
+  padding-bottom: 1rem;
+  padding-left: 2rem;
+}
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding-bottom: 2rem;
+}
+.button-container {
+  display: flex;
+  justify-content: center;
+  width: 120px;
+}
+
+

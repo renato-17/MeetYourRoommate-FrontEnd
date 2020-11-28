@@ -48,6 +48,7 @@ import {RegisterStudentComponent} from "./pages/register-student/register-studen
     PropertyComponent,
     LessorProfileComponent,
     TeamsComponent,
+    TeamComponent,
     ReservationsComponent,
     StudentProfileComponent,
     AdsComponent,

@@ -36,7 +36,6 @@ export class RegisterLessorComponent implements OnInit {
       address: ['', [Validators.required]],
       premium: [false]
     });
-    this.form.valueChanges.subscribe();
   }
 
   addLessor(): void {
@@ -49,11 +48,10 @@ export class RegisterLessorComponent implements OnInit {
         phoneNumber:  this.form.get("phoneNumber").value,
         gender:  this.form.get("gender").value,
         birthdate: this.form.get("birthdate").value,
-        address:  this.form.get("address").value,
-        premium: false
+        address:  this.form.get("address").value
       };
     console.log(newLessor);
-    this.httpDataService.createItem(newLessor);
+    this.httpDataService.createItem(newLessor).subscribe(()=>{});
   }
 
   onSubmit(): void {
@@ -64,6 +62,5 @@ export class RegisterLessorComponent implements OnInit {
     console.log("Form is valid");
     this.addLessor();
     this.router.navigate(['/']).then(() => null);
-    console.log(this.httpDataService.getItem(2));
   }
 }

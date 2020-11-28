@@ -17,16 +17,12 @@ import {StudentService} from "../../services/student.service";
 export class RegisterStudentComponent implements OnInit {
   form: FormGroup;
   studentData: Student;
-  dataSource = new MatTableDataSource();
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
 
   constructor(private httpDataService: StudentService, private router: Router, private formBuilder: FormBuilder) {
     this.studentData = {} as Student;
   }
 
   ngOnInit(): void {
-    this.dataSource.sort = this.sort;
     this.form = this.formBuilder.group({
       firstName: ['', [Validators.required]],
       lastName: ['', [Validators.required]],
@@ -60,7 +56,7 @@ export class RegisterStudentComponent implements OnInit {
     }
     console.log("New Student: ");
     console.log(newStudent);console.log(this.form.getRawValue());
-    this.httpDataService.createItem(this.form.getRawValue());
+    this.httpDataService.createItem(newStudent);
   }
 
   onSubmit(): void {

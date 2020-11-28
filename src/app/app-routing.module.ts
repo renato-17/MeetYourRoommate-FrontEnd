@@ -37,7 +37,8 @@ const routes: Routes = [
   {path: 'registerStudent', component: RegisterStudentComponent},
   {path: 'registerLessor', component: RegisterLessorComponent},
   {path: 'loginStudent', component: LoginStudentComponent},
-  {path: 'loginLessor', component: LoginLessorComponent}
+  {path: 'loginLessor', component: LoginLessorComponent},
+  {path: 'loginLessor', component: LoginLessorComponent},
   ];
 
 @NgModule({
